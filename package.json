@@ -1,0 +1,46 @@
+{
+    "name": "create-mori",
+    "version": "0.0.0",
+    "description": "Quickly create project templates to support the required repositories as much as possible",
+    "main": "./dist/index.js",
+    "bin": {
+        "create-mori": "./dist/index.js"
+    },
+    "scripts": {
+        "test": "npm run build && npm link && create-mori",
+        "build": "rimraf -I ./dist && tsc"
+    },
+    "keywords": [
+        "mori",
+        "create-mori",
+        "mori-create",
+        "create-mori-project",
+        "create-project"
+    ],
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mori-Young/create-mori.git"
+    },
+    "author": "Mori <ys0514@yeah.net>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Mori-Young/create-mori/issues"
+    },
+    "homepage": "https://github.com/Mori-Young/create-mori#readme",
+    "devDependencies": {
+        "@types/node": "^22.10.7",
+        "@types/prompts": "^2.4.9",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
+    },
+    "pnpm": {
+        "overrides": {}
+    },
+    "dependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "fs-extra": "^11.3.0",
+        "prompts": "^2.4.2",
+        "rimraf": "^6.0.1"
+    }
+}
