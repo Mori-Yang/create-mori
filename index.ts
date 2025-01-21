@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+import chalk from "chalk";
+import figlet from "figlet";
 import fs from "fs-extra";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import ora from "ora";
 import prompts from "prompts";
 import { isChina } from "./common/constant.js";
 import {
@@ -11,6 +14,12 @@ import {
     getSupportedStores,
     TemplateConfig,
 } from "./common/index.js";
+
+const spinner = ora({
+    color: "green",
+    spinner: "dots",
+});
+console.info(chalk.green(figlet.textSync("M o r i", { width: 100 })));
 
 // 项目名
 const { projectName } = await prompts({
@@ -71,6 +80,8 @@ const templatesPath = path.resolve(
 );
 
 try {
+    spinner.start();
+
     fs.removeSync(root);
     fs.ensureDirSync(root);
     const config = {
@@ -83,12 +94,12 @@ try {
         config.store = store;
     }
 
-    createTemplate(config, root, templatesPath);
-    console.info(
-        `\n\n execute: \n\n cd ${projectName} \n npm install \n npm run dev`
-    );
+    const successed = createTemplate(config, root, templatesPath);
+    if (successed) {
+        spinner.succeed(
+            `execute: \n 🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
+        );
+    }
 } catch (err) {
-    console.error(err);
-} finally {
-    console.info(`Done!`);
+    spinner.fail(err instanceof Error ? err.message : String(err));
 }

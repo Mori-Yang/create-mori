@@ -1,16 +1,13 @@
-import { BuildTool, Framework, Store } from "./constant.js";
-
-type BuildToolValueTypes =
-    (typeof BuildTool.Value)[keyof typeof BuildTool.Value];
-type FrameworkValueTypes =
-    (typeof Framework.Value)[keyof typeof Framework.Value];
-type StoreValueTypes = (typeof Store.Value)[keyof typeof Store.Value];
-
-type Combinations = {
-    buildTool: BuildToolValueTypes;
-    framework: FrameworkValueTypes;
-    store?: StoreValueTypes;
-};
+import {
+    BuildTool,
+    BuildToolValueTypes,
+    Combinations,
+    Framework,
+    FrameworkValueTypes,
+    Store,
+    StoreValueTypes,
+    SUPPORTED_COMBINATIONS,
+} from "./constant.js";
 
 export type TemplateConfig = {
     projectName?: string;
@@ -18,35 +15,6 @@ export type TemplateConfig = {
     framework: FrameworkValueTypes;
     store?: StoreValueTypes;
 };
-
-/**
- * 配置可选组合
- */
-const SUPPORTED_COMBINATIONS: Array<Combinations> = [
-    {
-        buildTool: BuildTool.Value.Vite,
-        framework: Framework.Value.Vue,
-    },
-    {
-        buildTool: BuildTool.Value.Vite,
-        framework: Framework.Value.React,
-    },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.React,
-    //     store: Store.Value.Zustand,
-    // },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.React,
-    //     store: Store.Value.Jotai,
-    // },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.Vue,
-    //     store: Store.Value.Vuex,
-    // },
-];
 
 // 获取支持的构建工具
 export const getSupportedBuildTools = () => {

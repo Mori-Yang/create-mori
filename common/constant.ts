@@ -40,4 +40,42 @@ const Store = {
     },
 } as const;
 
-export { isChina, Framework, BuildTool, Store };
+export type BuildToolValueTypes =
+    (typeof BuildTool.Value)[keyof typeof BuildTool.Value];
+export type FrameworkValueTypes =
+    (typeof Framework.Value)[keyof typeof Framework.Value];
+export type StoreValueTypes = (typeof Store.Value)[keyof typeof Store.Value];
+export type Combinations = {
+    buildTool: BuildToolValueTypes;
+    framework: FrameworkValueTypes;
+    store?: StoreValueTypes;
+};
+/**
+ * 配置可选组合
+ */
+const SUPPORTED_COMBINATIONS: Array<Combinations> = [
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.Vue,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+    },
+    // {
+    //     buildTool: BuildTool.Value.Vite,
+    //     framework: Framework.Value.React,
+    //     store: Store.Value.Zustand,
+    // },
+    // {
+    //     buildTool: BuildTool.Value.Vite,
+    //     framework: Framework.Value.React,
+    //     store: Store.Value.Jotai,
+    // },
+    // {
+    //     buildTool: BuildTool.Value.Vite,
+    //     framework: Framework.Value.Vue,
+    //     store: Store.Value.Vuex,
+    // },
+];
+export { BuildTool, Framework, SUPPORTED_COMBINATIONS, Store, isChina };

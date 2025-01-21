@@ -12,13 +12,22 @@ export const createTemplate = (
     // 获取templates目录下的所有一级子目录
     const templates = fs.readdirSync(templatePath);
 
-    const projectName = config.projectName;
     delete config.projectName;
 
     const templateName = genTemplateName(config);
     const templateDir = path.resolve(templatePath, templateName);
 
+    // 再次校验所要复制模板是否存在
+    const finalTemplate = templates.find((t) => {
+        return t === templateName;
+    });
+
+    if (!finalTemplate) {
+        return false;
+    }
+
     fsExtra.copySync(templateDir, root);
+    return true;
 };
 
 function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
