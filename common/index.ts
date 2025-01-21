@@ -18,8 +18,7 @@ export type TemplateConfig = {
 
 // 获取支持的构建工具
 export const getSupportedBuildTools = () => {
-    const buildTools = new Set(SUPPORTED_COMBINATIONS.map((c) => c.framework));
-
+    const buildTools = new Set(SUPPORTED_COMBINATIONS.map((c) => c.buildTool));
     return Array.from(buildTools).map((value) => ({
         title: BuildTool.Text[value],
         value,

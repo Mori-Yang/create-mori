@@ -68,9 +68,7 @@ if (supportedStores.length) {
 }
 
 const cwd = process.cwd();
-const root =
-    cwd +
-    (cwd.lastIndexOf("\\") === cwd.length ? projectName : `\\${projectName}`);
+const root = path.resolve(cwd, projectName);
 
 const templatesPath = path.resolve(
     fileURLToPath(import.meta.url),
@@ -97,7 +95,10 @@ try {
     const successed = createTemplate(config, root, templatesPath);
     if (successed) {
         spinner.succeed(
-            `execute: \n 🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
+            chalk.blue("execute: \n") +
+                chalk.green(
+                    `🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
+                )
         );
     }
 } catch (err) {
