@@ -23,7 +23,7 @@
         "url": "git+https://github.com/Mori-Young/create-mori.git"
     },
     "author": "Mori <ys0514@yeah.net>",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/Mori-Young/create-mori/issues"
     },
