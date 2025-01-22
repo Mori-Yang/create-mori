@@ -26,7 +26,14 @@ export const createTemplate = (
         return false;
     }
 
-    fsExtra.copySync(templateDir, root);
+    fsExtra.copySync(templateDir, root, {
+        filter: (src, dest) => {
+            if (src.includes("lock") || src.includes("node_modules")) {
+                return false;
+            }
+            return true;
+        },
+    });
     return true;
 };
 

@@ -1,12 +1,13 @@
+import SUPPORTED_COMBINATIONS, {
+    Combinations,
+} from "../supported-templates.js";
 import {
     BuildTool,
     BuildToolValueTypes,
-    Combinations,
     Framework,
     FrameworkValueTypes,
     Store,
     StoreValueTypes,
-    SUPPORTED_COMBINATIONS,
 } from "./constant.js";
 
 export type TemplateConfig = {
