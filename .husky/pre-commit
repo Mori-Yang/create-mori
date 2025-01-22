@@ -1,4 +1,5 @@
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$BRANCH" = "master" ]; then
-    echo -e "\033[0;33m当前在master分支新增commit, 如果需要发包，请修改版本号"
+    echo -e "\033[0;33m当前在master分支新增commit"
+    echo -e "\033[0;33m如果需要发包，请修改版本号"
 fi
