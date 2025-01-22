@@ -100,7 +100,7 @@ try {
         spinner.succeed(
             chalk.blue("execute: \n") +
                 chalk.green(
-                    `🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
+                    ` 🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
                 )
         );
     }
