@@ -1,6 +1,6 @@
 {
     "name": "create-mori",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Quickly create project templates to support the required repositories as much as possible",
     "main": "./dist/index.js",
     "bin": {
@@ -13,6 +13,7 @@
     "scripts": {
         "test": "npm run build && npm link && create-mori",
         "build": "rimraf -I ./dist && tsc",
+        "publish": "npm run build && npm publish",
         "prepare": "husky"
     },
     "keywords": [
