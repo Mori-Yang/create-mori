@@ -28,6 +28,9 @@ const { projectName } = await prompts({
     message: `Project name ${+isChina ? "(项目名)" : ""}:`,
     initial: "mori-project",
 });
+if (!projectName) {
+    cancel();
+}
 
 // 选择构建工具
 const { buildTool } = await prompts({
@@ -102,5 +105,12 @@ try {
         );
     }
 } catch (err) {
-    spinner.fail(err instanceof Error ? err.message : String(err));
+    spinner.fail(
+        chalk.red("🚫 " + (err instanceof Error ? err.message : String(err)))
+    );
+}
+
+function cancel() {
+    console.info(chalk.blueBright("🛑Cancelled!"));
+    process.exit(0);
 }
