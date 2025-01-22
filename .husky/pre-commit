@@ -1,5 +1,8 @@
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$BRANCH" = "master" ]; then
-    echo -e "\033[0;33m当前在master分支新增commit"
-    echo -e "\033[0;33m如果需要发包，请修改版本号"
+    echo -e "\033[0;33m 当前在master分支新增commit"
+    echo -e "\033[0;33m 如果需要发包："
+    echo -e "\033[0;34m1. 修改 package.json 中的 version 字段"
+    echo -e "\033[0;34m2. 若新增模板请修改 Readme.md"
+    echo -e "\033[0;34m3. 发布前请先执行 npm run build"
 fi
