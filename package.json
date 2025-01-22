@@ -8,7 +8,8 @@
     },
     "scripts": {
         "test": "npm run build && npm link && create-mori",
-        "build": "rimraf -I ./dist && tsc"
+        "build": "rimraf -I ./dist && tsc",
+        "prepare": "husky"
     },
     "keywords": [
         "mori",
@@ -33,6 +34,7 @@
         "@types/fs-extra": "^11.0.4",
         "@types/node": "^22.10.7",
         "@types/prompts": "^2.4.9",
+        "husky": "^9.1.7",
         "rimraf": "^6.0.1",
         "ts-node": "^10.9.2",
         "typescript": "^5.7.3"
