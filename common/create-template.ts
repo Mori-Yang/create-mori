@@ -26,18 +26,17 @@ export const createTemplate = (
         return false;
     }
 
-    fsExtra.copySync(templateDir, root, {
-        filter: (src) => {
-            if (
-                src.includes("lock") ||
-                src.includes("node_modules") ||
-                src.includes("dist")
-            ) {
-                return false;
+    // 遍历templatePath下的所有文件,如果文件名包含lock、node_modules、dist则跳过，否则copy
+    fs.readdirSync(templateDir).forEach((file) => {
+        fsExtra.copySync(
+            path.resolve(templateDir, file),
+            path.resolve(root, file),
+            {
+                filter: () => !shouldSkip(file),
             }
-            return true;
-        },
+        );
     });
+
     return true;
 };
 
@@ -59,4 +58,15 @@ function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
     });
     templateName = templateName.slice(1);
     return templateName.toLowerCase();
+}
+
+function shouldSkip(src: string) {
+    if (
+        src.includes("lock") ||
+        src.includes("node_modules") ||
+        src.includes("dist")
+    ) {
+        return true;
+    }
+    return false;
 }

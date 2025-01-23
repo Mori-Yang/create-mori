@@ -20,3 +20,4 @@ pnpm create mori
 |    Vite    |   React   |    /    |    ✅    |
 |  Webpack   |   React   |    /    |    ✅    |
 |    Vite    |   React   | Zustand |    🚧    |
+|    Vite    |   React   |  Jotai  |    🚧    |
