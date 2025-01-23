@@ -1,5 +1,6 @@
 # create-mori
 
+<img src="./assets/logo1.5.png" />
 Quickly create project templates to support the required repositories as much as possible
 
 # usage
