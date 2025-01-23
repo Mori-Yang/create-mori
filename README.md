@@ -15,7 +15,8 @@ pnpm create mori
 
 # supported templates
 
-| build tool | framework | template |
-| :--------- | --------: | :------: |
-| Vite       |     React |    ✅    |
-| Vite       |       Vue |    🚧    |
+| build tool | framework |  store  | template |
+| :--------: | :-------: | :-----: | :------: |
+|    Vite    |   React   |    /    |    ✅    |
+|  Webpack   |   React   |    /    |    ✅    |
+|    Vite    |   React   | Zustand |    🚧    |
