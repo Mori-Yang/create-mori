@@ -32,7 +32,7 @@ export const createTemplate = (
             path.resolve(templateDir, file),
             path.resolve(root, file),
             {
-                filter: () => !shouldSkip(file),
+                filter: () => !shouldSkip(file, templatePath),
             }
         );
     });
@@ -60,7 +60,8 @@ function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
     return templateName.toLowerCase();
 }
 
-function shouldSkip(src: string) {
+function shouldSkip(src: string, templatePath: string) {
+    src = src.replace(templatePath, "");
     if (
         src.includes("lock") ||
         src.includes("node_modules") ||
