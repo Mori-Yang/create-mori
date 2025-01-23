@@ -2,18 +2,20 @@
     "compilerOptions": {
         "target": "ESNext",
         "useDefineForClassFields": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
         "lib": [
             "ESNext",
             "DOM",
             "DOM.Iterable"
         ],
-        "module": "ESNext",
         "skipLibCheck": true,
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
         "isolatedModules": true,
         "moduleDetection": "force",
-        "noEmit": true,
+        "noEmit": false,
         "jsx": "react-jsx",
         "strict": true,
         "noUnusedLocals": true,
@@ -21,9 +23,14 @@
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true
     },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
     "include": [
         "./src/**/*",
-        "./vite.config.ts"
+        "./webpack.config.ts"
     ],
     "exclude": [
         "node_modules",

@@ -1,8 +1,9 @@
-# Mori: Vite + React
+# Mori: Webpack + React
 
--   Vite
+-   Webpack
 -   React
 -   Less
 -   TypeScript
 -   ESLint
+-   Babel
 -   React-Scan (Automatically remove in production environment)

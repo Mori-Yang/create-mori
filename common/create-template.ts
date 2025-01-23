@@ -27,8 +27,12 @@ export const createTemplate = (
     }
 
     fsExtra.copySync(templateDir, root, {
-        filter: (src, dest) => {
-            if (src.includes("lock") || src.includes("node_modules")) {
+        filter: (src) => {
+            if (
+                src.includes("lock") ||
+                src.includes("node_modules") ||
+                src.includes("dist")
+            ) {
                 return false;
             }
             return true;

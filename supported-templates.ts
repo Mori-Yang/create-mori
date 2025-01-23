@@ -20,9 +20,13 @@ const SUPPORTED_COMBINATIONS: Array<Combinations> = [
         framework: Framework.Value.React,
     },
     {
-        buildTool: BuildTool.Value.Vite,
-        framework: Framework.Value.Vue,
+        buildTool: BuildTool.Value.Webpack,
+        framework: Framework.Value.React,
     },
+    // {
+    //     buildTool: BuildTool.Value.Vite,
+    //     framework: Framework.Value.Vue,
+    // },
     // {
     //     buildTool: BuildTool.Value.Vite,
     //     framework: Framework.Value.React,
