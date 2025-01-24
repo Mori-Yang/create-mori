@@ -6,11 +6,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import ora from "ora";
 import prompts from "prompts";
-import { isChina } from "./common/constant.js";
 import {
     createTemplate,
     getSupportedBuildTools,
     getSupportedFrameworks,
+    getSupportedRouters,
     getSupportedStores,
     TemplateConfig,
 } from "./common/index.js";
@@ -25,7 +25,7 @@ console.info(chalk.green(figlet.textSync("M o r i", { width: 100 })));
 const { projectName } = await prompts({
     type: "text",
     name: "projectName",
-    message: `Project name ${+isChina ? "(项目名)" : ""}:`,
+    message: `Project name : `,
     initial: "mori-project",
 });
 if (!projectName) {
@@ -36,7 +36,7 @@ if (!projectName) {
 const { buildTool } = await prompts({
     type: "select",
     name: "buildTool",
-    message: `Build Tool ${isChina ? "(构建工具)" : ""}`,
+    message: `Build Tool : }`,
     choices: getSupportedBuildTools(),
 });
 
@@ -44,7 +44,7 @@ const { buildTool } = await prompts({
 const { framework } = await prompts({
     type: "select",
     name: "framework",
-    message: `Framework ${isChina ? "(框架)" : ""}`,
+    message: `Framework : `,
     choices: getSupportedFrameworks(),
 });
 
@@ -56,17 +56,38 @@ if (supportedStores.length) {
     const { needStore } = await prompts({
         type: "confirm",
         name: "needStore",
-        message: `Need a store ? ${isChina ? "(是否需要状态管理库？)" : ""}`,
+        message: `Need a store ? `,
     });
 
     if (needStore) {
         const storeRes = await prompts({
             type: "select",
             name: "store",
-            message: `Store ${isChina ? "(状态管理库)" : ""}`,
+            message: `Store : `,
             choices: supportedStores,
         });
         store = storeRes.store;
+    }
+}
+
+// 选择路由库
+const supportedRouters = getSupportedRouters(framework);
+let router = null;
+if (supportedRouters.length) {
+    const { needRouter } = await prompts({
+        type: "confirm",
+        name: "needRouter",
+        message: `Need a router ?`,
+    });
+
+    if (needRouter) {
+        const routerRes = await prompts({
+            type: "select",
+            name: "router",
+            message: `Router : `,
+            choices: supportedRouters,
+        });
+        router = routerRes.router;
     }
 }
 
@@ -95,14 +116,20 @@ try {
         config.store = store;
     }
 
-    const successed = createTemplate(config, root, templatesPath);
-    if (successed) {
+    if (router) {
+        config.router = router;
+    }
+
+    const { success, message } = createTemplate(config, root, templatesPath);
+    if (success) {
         spinner.succeed(
             chalk.blue("execute: \n") +
                 chalk.green(
                     ` 🌲 cd ${projectName} \n 🌲 npm install \n 🌲 npm run dev`
                 )
         );
+    } else {
+        spinner.fail(chalk.red(message));
     }
 } catch (err) {
     spinner.fail(

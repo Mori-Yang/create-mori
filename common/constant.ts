@@ -1,8 +1,3 @@
-const isChina = Intl.DateTimeFormat()
-    .resolvedOptions()
-    .locale.toLowerCase()
-    .includes("zh-cn");
-
 const Framework = {
     Text: {
         1: "Vue",
@@ -40,10 +35,22 @@ const Store = {
     },
 } as const;
 
+const Router = {
+    Text: {
+        1: "React Router",
+        2: "Tanstack Router",
+    },
+    Value: {
+        ReactRouter: 1,
+        TanstackRouter: 2,
+    },
+} as const;
+
 export type BuildToolValueTypes =
     (typeof BuildTool.Value)[keyof typeof BuildTool.Value];
 export type FrameworkValueTypes =
     (typeof Framework.Value)[keyof typeof Framework.Value];
 export type StoreValueTypes = (typeof Store.Value)[keyof typeof Store.Value];
+export type RouterValueTypes = (typeof Router.Value)[keyof typeof Router.Value];
 
-export { BuildTool, Framework, Store, isChina };
+export { BuildTool, Framework, Router, Store };

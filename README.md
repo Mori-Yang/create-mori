@@ -21,6 +21,7 @@ pnpm create mori
 |    Vite    |   React   |    /    |        /        |    ✅    |
 |    Vite    |   React   | Zustand |        /        |    ✅    |
 |    Vite    |   React   |  Jotai  |        /        |    ✅    |
+|    Vite    |   React   |    /    |  React Router   |    ✅    |
 |    Vite    |   React   | Zustand |  React Router   |    🚧    |
 |    Vite    |   React   | Zustand | Tanstack Router |    🚧    |
 |    Vite    |   React   |  Jotai  |  React Router   |    🚧    |

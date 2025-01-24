@@ -1,7 +1,7 @@
 import fsExtra from "fs-extra/esm";
 import fs from "node:fs";
 import path from "node:path";
-import { BuildTool, Framework, Store } from "./constant.js";
+import { BuildTool, Framework, Router, Store } from "./constant.js";
 import { TemplateConfig } from "./index.js";
 
 export const createTemplate = (
@@ -9,7 +9,7 @@ export const createTemplate = (
     root: string,
     templatePath: string
 ) => {
-    // 获取templates目录下的所有一级子目录
+    // 获取templates目录下的所有模板文件夹
     const templates = fs.readdirSync(templatePath);
 
     delete config.projectName;
@@ -23,7 +23,10 @@ export const createTemplate = (
     });
 
     if (!finalTemplate) {
-        return false;
+        return {
+            success: false,
+            message: `⚠️  Error: Mori has not yet provided the template ${templateName}, or encountered an unexpected error. We hope to receive your feedback.\n 🔖 New Issue: https://github.com/Mori-Young/create-mori/issues/new?template=Blank+issue`,
+        };
     }
 
     // 遍历templatePath下的所有文件,如果文件名包含lock、node_modules、dist则跳过，否则copy
@@ -37,7 +40,7 @@ export const createTemplate = (
         );
     });
 
-    return true;
+    return { success: true };
 };
 
 function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
@@ -53,6 +56,11 @@ function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
                 break;
             case "store":
                 templateName += `-${Store.Text[config[k]!]}`;
+                break;
+            case "router":
+                templateName += `-${Router.Text[config[k]!]
+                    .split(" ")
+                    .join("_")}`;
                 break;
         }
     });

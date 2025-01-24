@@ -6,6 +6,8 @@ import {
     BuildToolValueTypes,
     Framework,
     FrameworkValueTypes,
+    Router,
+    RouterValueTypes,
     Store,
     StoreValueTypes,
 } from "./constant.js";
@@ -15,6 +17,7 @@ export type TemplateConfig = {
     buildTool: BuildToolValueTypes;
     framework: FrameworkValueTypes;
     store?: StoreValueTypes;
+    router?: RouterValueTypes;
 };
 
 // 获取支持的构建工具
@@ -47,6 +50,23 @@ export const getSupportedStores = (framework: FrameworkValueTypes) => {
     return Array.from(frameworks).map((value) => {
         return {
             title: Store.Text[value],
+            value,
+        };
+    });
+};
+
+// 获取特定框架下支持的路由
+export const getSupportedRouters = (framework: FrameworkValueTypes) => {
+    const routers = new Set(
+        SUPPORTED_COMBINATIONS.filter(
+            (c): c is Combinations & { router: RouterValueTypes } =>
+                c.framework === framework && c.router !== undefined
+        ).map((c) => c.router)
+    );
+
+    return Array.from(routers).map((value) => {
+        return {
+            title: Router.Text[value],
             value,
         };
     });
