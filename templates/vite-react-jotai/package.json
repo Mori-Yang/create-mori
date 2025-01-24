@@ -1,5 +1,5 @@
 {
-    "name": "vite-react",
+    "name": "vite-react-jotai",
     "version": "1.0.0",
     "description": "Mori-CLI created",
     "main": "index.js",
@@ -11,6 +11,7 @@
     },
     "type": "module",
     "dependencies": {
+        "jotai": "^2.11.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
     },

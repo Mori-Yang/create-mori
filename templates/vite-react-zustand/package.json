@@ -1,5 +1,5 @@
 {
-    "name": "vite-react",
+    "name": "vite-react-zustand",
     "version": "1.0.0",
     "description": "Mori-CLI created",
     "main": "index.js",
@@ -12,7 +12,8 @@
     "type": "module",
     "dependencies": {
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "zustand": "^5.0.3"
     },
     "devDependencies": {
         "@eslint/js": "^9.18.0",

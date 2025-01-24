@@ -1,15 +1,13 @@
 {
     "name": "webpack-react",
     "version": "1.0.0",
-    "description": "",
+    "description": "Mori-CLI created",
     "main": "index.js",
     "scripts": {
         "dev": "webpack serve --config webpack.config.ts",
         "build": "webpack"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "react": "^19.0.0",
         "react-dom": "^19.0.0"

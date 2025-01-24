@@ -3,6 +3,7 @@ import {
     BuildToolValueTypes,
     Framework,
     FrameworkValueTypes,
+    Store,
     StoreValueTypes,
 } from "./common/constant.js";
 
@@ -23,25 +24,16 @@ const SUPPORTED_COMBINATIONS: Array<Combinations> = [
         buildTool: BuildTool.Value.Webpack,
         framework: Framework.Value.React,
     },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.Vue,
-    // },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.React,
-    //     store: Store.Value.Zustand,
-    // },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.React,
-    //     store: Store.Value.Jotai,
-    // },
-    // {
-    //     buildTool: BuildTool.Value.Vite,
-    //     framework: Framework.Value.Vue,
-    //     store: Store.Value.Vuex,
-    // },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Zustand,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Jotai,
+    },
 ];
 
 export default SUPPORTED_COMBINATIONS;
