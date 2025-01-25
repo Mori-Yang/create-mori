@@ -66,7 +66,7 @@ export const getSupportedRouters = (framework: FrameworkValueTypes) => {
 
     return Array.from(routers).map((value) => {
         return {
-            title: Router.Text[value],
+            title: Router.Description[value],
             value,
         };
     });

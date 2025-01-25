@@ -40,6 +40,10 @@ const Router = {
         1: "React Router",
         2: "Tanstack Router",
     },
+    Description: {
+        1: "React Router (routes as a tree of nested objects)",
+        2: "Tanstack Router (file-based routing)",
+    },
     Value: {
         ReactRouter: 1,
         TanstackRouter: 2,

@@ -42,6 +42,11 @@ const SUPPORTED_COMBINATIONS: Array<Combinations> = [
         framework: Framework.Value.React,
         router: Router.Value.ReactRouter,
     },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        router: Router.Value.TanstackRouter,
+    },
 ];
 
 export default SUPPORTED_COMBINATIONS;

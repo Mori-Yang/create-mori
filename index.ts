@@ -84,7 +84,7 @@ if (supportedRouters.length) {
         const routerRes = await prompts({
             type: "select",
             name: "router",
-            message: `Router : `,
+            message: `Router: `,
             choices: supportedRouters,
         });
         router = routerRes.router;
