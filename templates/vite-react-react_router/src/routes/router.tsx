@@ -1,18 +1,18 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, RouteObject } from "react-router";
+import { Fragment } from "react/jsx-runtime";
+import App from "../App";
 
-const router = createBrowserRouter([
+const routes: RouteObject[] = [
     {
         path: "/",
-        lazy: async () => {
-            const { default: App } = await import("../App");
-            return { Component: App };
-        },
+        element: <App />,
         /**
          * When using `createBrowserRouter` and `RouterProvider`,
          * even without using SSR, the console warns:
          * `hook.js:608 No 'HydrateFallback' element provided to render during initial hydration Error Component Stack`.
+         *  related issue: https://github.com/remix-run/react-router/issues/12249
          */
-        hydrateFallbackElement: "",
+        hydrateFallbackElement: <Fragment></Fragment>,
         children: [
             {
                 index: true,
@@ -30,6 +30,8 @@ const router = createBrowserRouter([
             },
         ],
     },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 export default router;
