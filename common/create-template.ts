@@ -11,7 +11,7 @@ export const createTemplate = (
 ) => {
     // 获取templates目录下的所有模板文件夹
     const templates = fs.readdirSync(templatePath);
-
+    const projectName = config.projectName;
     delete config.projectName;
 
     const templateName = genTemplateName(config);
@@ -39,7 +39,15 @@ export const createTemplate = (
             }
         );
     });
-
+    // rewrite package.json
+    const packageJson = fsExtra.readJsonSync(
+        path.resolve(root, "package.json")
+    );
+    packageJson.name = projectName;
+    console.log(packageJson.name);
+    fsExtra.writeJsonSync(path.resolve(root, "package.json"), packageJson, {
+        spaces: 4,
+    });
     return { success: true };
 };
 
@@ -77,5 +85,6 @@ function shouldSkip(src: string, templatePath: string) {
     ) {
         return true;
     }
+
     return false;
 }

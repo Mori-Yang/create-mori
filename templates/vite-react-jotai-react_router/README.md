@@ -1,8 +1,9 @@
-# Mori: Vite + React + Tanstack Router
+# Mori: Vite + React + Jotai + React Router
 
 -   Vite
 -   React
--   Tanstack Router
+-   Jotai
+-   React Router
 -   Less
 -   TypeScript
 -   ESLint

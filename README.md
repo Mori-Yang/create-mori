@@ -23,8 +23,8 @@ pnpm create mori
 |    Vite    |   React   |  Jotai  |        /        |    ✅    |
 |    Vite    |   React   |    /    |  React Router   |    ✅    |
 |    Vite    |   React   |    /    | Tanstack Router |    ✅    |
-|    Vite    |   React   | Zustand |  React Router   |    🚧    |
-|    Vite    |   React   | Zustand | Tanstack Router |    🚧    |
-|    Vite    |   React   |  Jotai  |  React Router   |    🚧    |
-|    Vite    |   React   |  Jotai  | Tanstack Router |    🚧    |
+|    Vite    |   React   | Zustand |  React Router   |    ✅    |
+|    Vite    |   React   | Zustand | Tanstack Router |    ✅    |
+|    Vite    |   React   |  Jotai  |  React Router   |    ✅    |
+|    Vite    |   React   |  Jotai  | Tanstack Router |    ✅    |
 |  Webpack   |   React   |    /    |        /        |    ✅    |

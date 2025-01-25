@@ -21,7 +21,7 @@ const spinner = ora({
 });
 console.info(chalk.green(figlet.textSync("M o r i", { width: 100 })));
 
-// 项目名
+// Project name
 const { projectName } = await prompts({
     type: "text",
     name: "projectName",
@@ -32,7 +32,7 @@ if (!projectName) {
     cancel();
 }
 
-// 选择构建工具
+// Select build tool
 const { buildTool } = await prompts({
     type: "select",
     name: "buildTool",
@@ -40,7 +40,7 @@ const { buildTool } = await prompts({
     choices: getSupportedBuildTools(),
 });
 
-// 选择框架
+// Select framework
 const { framework } = await prompts({
     type: "select",
     name: "framework",
@@ -48,11 +48,11 @@ const { framework } = await prompts({
     choices: getSupportedFrameworks(),
 });
 
-// 选择状态管理库
+// Select state management library
 const supportedStores = getSupportedStores(framework);
 let store = null;
 if (supportedStores.length) {
-    // 是否需要Store
+    // Need a store?
     const { needStore } = await prompts({
         type: "confirm",
         name: "needStore",
@@ -70,7 +70,7 @@ if (supportedStores.length) {
     }
 }
 
-// 选择路由库
+// Select router library
 const supportedRouters = getSupportedRouters(framework);
 let router = null;
 if (supportedRouters.length) {
