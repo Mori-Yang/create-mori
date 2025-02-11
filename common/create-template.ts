@@ -3,6 +3,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { BuildTool, Framework, Router, Store } from "./constant.js";
 import { TemplateConfig } from "./index.js";
+import {
+    processJs,
+    processJson,
+    processWrite,
+    resolveInject,
+} from "./utils.js";
 
 export const createTemplate = (
     config: TemplateConfig,
@@ -39,15 +45,19 @@ export const createTemplate = (
             }
         );
     });
+
     // rewrite package.json
     const packageJson = fsExtra.readJsonSync(
         path.resolve(root, "package.json")
     );
     packageJson.name = projectName;
-    console.log(packageJson.name);
+
     fsExtra.writeJsonSync(path.resolve(root, "package.json"), packageJson, {
         spaces: 4,
     });
+
+    // inject code
+    injectCode(config, root, templatePath);
     return { success: true };
 };
 
@@ -87,4 +97,30 @@ function shouldSkip(src: string, templatePath: string) {
     }
 
     return false;
+}
+
+function injectCode(
+    config: TemplateConfig,
+    root: string,
+    templatePath: string
+) {
+    const { useTailwindcss } = config;
+    if (useTailwindcss) {
+        const resolved = resolveInject(
+            path.resolve(
+                templatePath,
+                "share-templates",
+                "tailwindcss",
+                "inject.json"
+            )
+        );
+        if (!resolved) return;
+        const { injectJson, write, injectJs } = resolved;
+
+        processJson(injectJson, root);
+
+        processWrite(write, root);
+
+        processJs(injectJs, root);
+    }
 }

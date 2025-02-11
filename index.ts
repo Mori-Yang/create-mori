@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import ora from "ora";
 import prompts from "prompts";
+import { BuildTool } from "./common/constant.js";
 import {
     createTemplate,
     getSupportedBuildTools,
@@ -101,6 +102,17 @@ const templatesPath = path.resolve(
     "templates"
 );
 
+let useTailwindcss = false;
+// Tailwindcss
+if (buildTool !== BuildTool.Value.Webpack) {
+    const res = await prompts({
+        type: "confirm",
+        name: "useTailwindcss",
+        message: `Do you need tailwindcss ?`,
+    });
+    useTailwindcss = res.useTailwindcss;
+}
+
 try {
     spinner.start();
 
@@ -110,6 +122,7 @@ try {
         projectName,
         buildTool,
         framework,
+        useTailwindcss,
     } as TemplateConfig;
 
     if (store) {
@@ -138,6 +151,6 @@ try {
 }
 
 function cancel() {
-    console.info(chalk.blueBright("🛑Cancelled!"));
+    console.info(chalk.blueBright("🛑 Cancelled!"));
     process.exit(0);
 }

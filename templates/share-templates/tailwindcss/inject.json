@@ -1,0 +1,43 @@
+{
+    "json": [
+        {
+            "path": "package.json",
+            "inject": {
+                "devDependencies": {
+                    "@tailwindcss/vite": "^4.0.4",
+                    "tailwindcss": "^4.0.4"
+                }
+            }
+        }
+    ],
+    "write": [
+        {
+            "path": "./src/tailwind.css",
+            "inject": "@import \"tailwindcss\";",
+            "pos": 0
+        },
+        {
+            "path": "./src/main.tsx",
+            "inject": "import \"./tailwind.css\";",
+            "pos": 0
+        },
+        {
+            "path": "README.md",
+            "inject": "-   TailwindCSS",
+            "pos": -1
+        },
+        {
+            "path": "vite.config.mts",
+            "inject": "import tailwindcss from \"@tailwindcss/vite\";",
+            "pos": 0
+        }
+    ],
+    "js": [
+        {
+            "path": "vite.config.mts",
+            "inject": {
+                "plugins": "tailwindcss()"
+            }
+        }
+    ]
+}
