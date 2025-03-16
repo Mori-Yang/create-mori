@@ -10,8 +10,6 @@ npm create mori
 # or
 npm install create-mori -g
 create-mori
-#or
-pnpm create mori
 ```
 
 # supported templates
@@ -35,4 +33,9 @@ pnpm create mori
 
 ## Vscode Extension
 
-`npm create-mori -t vscode-extension`
+```bash
+npm create mori -- -t vscode-extension
+# or
+npm install create-mori -g
+create-mori -t vscode-extension
+```
