@@ -18,7 +18,8 @@ import {
     TemplateConfig,
 } from "./common/index.js";
 
-const packageJson = fsExtra.readJsonSync(path.resolve("./", "package.json"));
+const dirname = path.resolve(fileURLToPath(import.meta.url), "..", "..");
+const packageJson = fsExtra.readJsonSync(path.resolve(dirname, "package.json"));
 const program = new Command();
 program
     .name("create-mori")
@@ -118,12 +119,7 @@ if (supportedRouters.length && !isSpecifiedTemplate) {
 const cwd = process.cwd();
 const root = path.resolve(cwd, projectName);
 
-const templatesPath = path.resolve(
-    fileURLToPath(import.meta.url),
-    "..",
-    "..",
-    "templates"
-);
+const templatesPath = path.resolve(dirname, "templates");
 
 let useTailwindcss = false;
 // Tailwindcss
