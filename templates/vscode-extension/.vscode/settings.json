@@ -1,0 +1,23 @@
+{
+    // runonsave扩展+vscode-ext-gen 实现：自动生成原信息，
+    // runonsvae扩展配置如下，将根据package.json 执行 npm run update 命令
+    // 命令："update": "vscode-ext-gen --output src/generated/meta.ts"
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "package.json",
+                "isAsync": true,
+                "cmd": "npm run update"
+            }
+        ]
+    },
+    "eslint.format.enable": true,
+    "eslint.useFlatConfig": true,
+    "prettier.tabWidth": 4,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}

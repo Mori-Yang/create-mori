@@ -1,6 +1,6 @@
 {
     "name": "create-mori",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Quickly create project templates to support the required repositories as much as possible",
     "main": "./dist/index.js",
     "bin": {
@@ -12,6 +12,7 @@
     ],
     "scripts": {
         "test": "npm run build && npm link && create-mori",
+        "test:vscode-extension": "npm run build && npm link && create-mori -t vscode-extension",
         "build": "rimraf -I ./dist && tsc",
         "prepare": "husky"
     },
@@ -48,6 +49,7 @@
     },
     "dependencies": {
         "chalk": "^5.4.1",
+        "commander": "^13.1.0",
         "figlet": "^1.8.0",
         "fs-extra": "^11.3.0",
         "ora": "^8.1.1",

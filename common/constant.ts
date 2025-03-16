@@ -57,4 +57,5 @@ export type FrameworkValueTypes =
 export type StoreValueTypes = (typeof Store.Value)[keyof typeof Store.Value];
 export type RouterValueTypes = (typeof Router.Value)[keyof typeof Router.Value];
 
-export { BuildTool, Framework, Router, Store };
+const SpecifiedTemplateSet = new Set(["vscode-extension"]);
+export { BuildTool, Framework, Router, SpecifiedTemplateSet, Store };

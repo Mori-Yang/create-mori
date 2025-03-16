@@ -23,7 +23,7 @@ export const createTemplate = (
     const templateName = genTemplateName(config);
     const templateDir = path.resolve(templatePath, templateName);
 
-    // 再次校验所要复制模板是否存在
+    // 校验所要复制模板是否存在
     const finalTemplate = templates.find((t) => {
         return t === templateName;
     });
@@ -47,6 +47,9 @@ export const createTemplate = (
     });
 
     // rewrite package.json
+    if (config.specifiedTemplate) {
+        return { success: true };
+    }
     const packageJson = fsExtra.readJsonSync(
         path.resolve(root, "package.json")
     );
@@ -63,7 +66,9 @@ export const createTemplate = (
 
 function genTemplateName(config: Omit<TemplateConfig, "projectName">) {
     let templateName = "";
-
+    if (config.specifiedTemplate) {
+        return config.specifiedTemplate;
+    }
     Object.keys(config).forEach((k) => {
         switch (k) {
             case "buildTool":

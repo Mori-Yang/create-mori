@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 import chalk from "chalk";
+import { Command } from "commander";
 import figlet from "figlet";
 import fs from "fs-extra";
+import fsExtra from "fs-extra/esm";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import ora from "ora";
 import prompts from "prompts";
-import { BuildTool } from "./common/constant.js";
+import { BuildTool, SpecifiedTemplateSet } from "./common/constant.js";
 import {
     createTemplate,
     getSupportedBuildTools,
@@ -15,6 +17,19 @@ import {
     getSupportedStores,
     TemplateConfig,
 } from "./common/index.js";
+
+const packageJson = fsExtra.readJsonSync(path.resolve("./", "package.json"));
+const program = new Command();
+program
+    .name("create-mori")
+    .description("CLI for creating a new project")
+    .version(packageJson.version);
+
+program.option("-t, --template <type>", "Create a specific template");
+program.parse(process.argv);
+const options = program.opts();
+const isSpecifiedTemplate =
+    options.template && SpecifiedTemplateSet.has(options.template);
 
 const spinner = ora({
     color: "green",
@@ -34,25 +49,33 @@ if (!projectName) {
 }
 
 // Select build tool
-const { buildTool } = await prompts({
-    type: "select",
-    name: "buildTool",
-    message: `Build Tool : }`,
-    choices: getSupportedBuildTools(),
-});
+let buildTool;
+if (!isSpecifiedTemplate) {
+    const response = await prompts({
+        type: "select",
+        name: "buildTool",
+        message: `Build Tool : }`,
+        choices: getSupportedBuildTools(),
+    });
+    buildTool = response.buildTool;
+}
 
 // Select framework
-const { framework } = await prompts({
-    type: "select",
-    name: "framework",
-    message: `Framework : `,
-    choices: getSupportedFrameworks(),
-});
+let framework;
+if (!isSpecifiedTemplate) {
+    const response = await prompts({
+        type: "select",
+        name: "framework",
+        message: `Framework : `,
+        choices: getSupportedFrameworks(),
+    });
+    framework = response.framework;
+}
 
 // Select state management library
-const supportedStores = getSupportedStores(framework);
 let store = null;
-if (supportedStores.length) {
+const supportedStores = getSupportedStores(framework);
+if (supportedStores.length && !isSpecifiedTemplate) {
     // Need a store?
     const { needStore } = await prompts({
         type: "confirm",
@@ -74,7 +97,7 @@ if (supportedStores.length) {
 // Select router library
 const supportedRouters = getSupportedRouters(framework);
 let router = null;
-if (supportedRouters.length) {
+if (supportedRouters.length && !isSpecifiedTemplate) {
     const { needRouter } = await prompts({
         type: "confirm",
         name: "needRouter",
@@ -104,7 +127,7 @@ const templatesPath = path.resolve(
 
 let useTailwindcss = false;
 // Tailwindcss
-if (buildTool !== BuildTool.Value.Webpack) {
+if (buildTool !== BuildTool.Value.Webpack && !isSpecifiedTemplate) {
     const res = await prompts({
         type: "confirm",
         name: "useTailwindcss",
@@ -119,6 +142,7 @@ try {
     fs.removeSync(root);
     fs.ensureDirSync(root);
     const config = {
+        specifiedTemplate: options.template,
         projectName,
         buildTool,
         framework,

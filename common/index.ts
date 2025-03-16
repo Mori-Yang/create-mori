@@ -19,6 +19,7 @@ export type TemplateConfig = {
     store?: StoreValueTypes;
     router?: RouterValueTypes;
     useTailwindcss?: boolean;
+    specifiedTemplate?: string;
 };
 
 // 获取支持的构建工具

@@ -16,6 +16,8 @@ pnpm create mori
 
 # supported templates
 
+## Application
+
 | build tool | framework |  store  |     router      |             template              |
 | :--------: | :-------: | :-----: | :-------------: | :-------------------------------: |
 |    Vite    |   React   |    /    |        /        |                ✅                 |
@@ -30,3 +32,7 @@ pnpm create mori
 |  Webpack   |   React   |    /    |        /        | ✅(Tailwindcss is not supported ) |
 
 -   tailwindcss : ✅ (less is still configured and needs to be removed manually)
+
+## Vscode Extension
+
+`npm create-mori -t vscode-extension`
