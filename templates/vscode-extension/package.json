@@ -1,18 +1,23 @@
 {
-    "publisher": "mori",
+    "publisher": "<author>",
     "name": "mori-extension-name",
     "displayName": "mori-extension-name",
     "version": "0.0.0",
     "private": true,
     "packageManager": "pnpm@10.4.1",
-    "description": "",
+    "description": "<description>",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "<your git url>"
+    },
     "categories": [
         "Other"
     ],
     "main": "./dist/index.js",
     "icon": "res/icon.png",
     "files": [
+        "LICENSE",
         "dist/*",
         "res/*"
     ],
