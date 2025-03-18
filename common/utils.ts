@@ -1,6 +1,6 @@
-import fs from "fs";
-import fsExtra from "fs-extra/esm";
-import { resolve } from "path";
+import fs from 'fs';
+import fsExtra from 'fs-extra/esm';
+import { resolve } from 'path';
 import {
     ArrayLiteralExpression,
     CallExpression,
@@ -9,7 +9,7 @@ import {
     Project,
     SourceFile,
     SyntaxKind,
-} from "ts-morph";
+} from 'ts-morph';
 
 /**
  * 解析规则：
@@ -23,16 +23,16 @@ export function resolveInject(injectJsonPath: string) {
 
     const config = fsExtra.readJsonSync(injectJsonPath);
 
-    let injectJson = config.json;
-    let write = config.write;
-    let injectJs = config.js;
+    const injectJson = config.json;
+    const write = config.write;
+    const injectJs = config.js;
 
     return { injectJson, write, injectJs };
 }
 
 type InjectJSON = Array<{
-    path: string;
-    inject: Array<Record<string, Array<string>>>;
+    path: string
+    inject: Array<Record<string, Array<string>>>
 }>;
 export function processJson(injectJson: InjectJSON, root: string) {
     for (const key in injectJson) {
@@ -58,9 +58,9 @@ export function processJson(injectJson: InjectJSON, root: string) {
 }
 
 type InjectWrite = Array<{
-    path: string;
-    inject: string | Array<string>;
-    pos: number;
+    path: string
+    inject: string | Array<string>
+    pos: number
 }>;
 export function processWrite(injectWrite: InjectWrite, root: string) {
     for (const key in injectWrite) {
@@ -70,12 +70,13 @@ export function processWrite(injectWrite: InjectWrite, root: string) {
 
             const { inject, pos } = injectWrite[key];
             if (Array.isArray(inject)) {
-                let injectCode = "";
+                let injectCode = '';
                 inject.forEach((code) => {
-                    injectCode += code + "\n";
+                    injectCode += code + '\n';
                 });
                 writeContentAfterLine(targetPath, pos, injectCode);
-            } else {
+            }
+            else {
                 writeContentAfterLine(targetPath, pos, inject);
             }
         }
@@ -85,19 +86,19 @@ export function processWrite(injectWrite: InjectWrite, root: string) {
 function writeContentAfterLine(
     filePath: string,
     lineNumber: number,
-    content: string
+    content: string,
 ) {
-    const data = fs.readFileSync(filePath, "utf8").split(/\r\n|\n|\r/gm);
+    const data = fs.readFileSync(filePath, 'utf8').split(/\r\n|\n|\r/gm);
     data.splice(lineNumber, 0, content);
-    fs.writeFileSync(filePath, data.join("\n"));
+    fs.writeFileSync(filePath, data.join('\n'));
 }
 
 type InjectJsOption = {
-    plugins: Array<string> | string;
+    plugins: Array<string> | string
 };
 type InjectJs = Array<{
-    path: string;
-    inject: InjectJsOption;
+    path: string
+    inject: InjectJsOption
 }>;
 export function processJs(injectJs: InjectJs, root: string) {
     for (const key in injectJs) {
@@ -108,7 +109,7 @@ export function processJs(injectJs: InjectJs, root: string) {
             const project = new Project();
             const sourceFile = project.addSourceFileAtPath(targetPath);
             // process vite.config.ts
-            if (path.includes("vite.config")) {
+            if (path.includes('vite.config')) {
                 processViteConfig(sourceFile, inject);
             }
 
@@ -125,17 +126,17 @@ function processViteConfig(sourceFile: SourceFile, inject: InjectJsOption) {
     ).getExpression();
 
     if (!Node.isCallExpression(exportedExpr)) {
-        throw new Error("export not a CallExpression");
+        throw new Error('export not a CallExpression');
     }
 
     const arrowFunc = exportedExpr.getArguments()[0];
     if (!Node.isArrowFunction(arrowFunc)) {
-        throw new Error("defineConfig's first arg is not a arrow function");
+        throw new Error('defineConfig\'s first arg is not a arrow function');
     }
 
     const returnBlock = arrowFunc.getBody();
     if (!Node.isBlock(returnBlock)) {
-        throw new Error("arrow function body is not a block");
+        throw new Error('arrow function body is not a block');
     }
 
     const bodyStatements = returnBlock.getStatements();
@@ -144,7 +145,7 @@ function processViteConfig(sourceFile: SourceFile, inject: InjectJsOption) {
             const returnStatement = statement;
             const defineConfigReturnValue = returnStatement.getExpression();
             if (!defineConfigReturnValue) {
-                throw new Error("return statement has no expression");
+                throw new Error('return statement has no expression');
             }
 
             processConfigReturnObject(defineConfigReturnValue, inject);
@@ -154,29 +155,29 @@ function processViteConfig(sourceFile: SourceFile, inject: InjectJsOption) {
 
 function processConfigReturnObject(
     defineConfigReturnValue: Expression,
-    inject: InjectJsOption
+    inject: InjectJsOption,
 ) {
     if (!Node.isObjectLiteralExpression(defineConfigReturnValue)) {
-        throw new Error("vite config is not a Object");
+        throw new Error('vite config is not a Object');
     }
 
     for (const key in inject) {
         if (Object.prototype.hasOwnProperty.call(inject, key)) {
             switch (key) {
-                case "plugins":
+                case 'plugins':
                     let pluginsArrayExpr = defineConfigReturnValue
-                        .getProperty("plugins")
+                        .getProperty('plugins')
                         ?.getFirstChildByKind(
-                            SyntaxKind.ArrayLiteralExpression
+                            SyntaxKind.ArrayLiteralExpression,
                         );
                     if (!pluginsArrayExpr) {
                         const newPluginsArray = defineConfigReturnValue
                             .addPropertyAssignment({
-                                name: "plugins",
-                                initializer: "[]",
+                                name: 'plugins',
+                                initializer: '[]',
                             })
                             .getFirstChildByKind(
-                                SyntaxKind.ArrayLiteralExpression
+                                SyntaxKind.ArrayLiteralExpression,
                             );
 
                         pluginsArrayExpr = newPluginsArray!;
@@ -191,14 +192,15 @@ function processConfigReturnObject(
 }
 
 function injectPlugins(
-    plugins: InjectJsOption["plugins"],
-    pluginsArrayExpr: ArrayLiteralExpression
+    plugins: InjectJsOption['plugins'],
+    pluginsArrayExpr: ArrayLiteralExpression,
 ) {
     if (Array.isArray(plugins)) {
         plugins.forEach((plugin) => {
             pluginsArrayExpr.addElement(plugin);
         });
-    } else {
+    }
+    else {
         pluginsArrayExpr.addElement(plugins);
     }
 }

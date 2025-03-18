@@ -16,8 +16,8 @@ create-mori
 
 ## Application
 
-| build tool | framework |  store  |     router      |             template              |
-| :--------: | :-------: | :-----: | :-------------: | :-------------------------------: |
+| build tool | framework |  store  |     router      |             template             |
+| :--------: | :-------: | :-----: | :-------------: | :------------------------------: |
 |    Vite    |   React   |    /    |        /        |                ✅                 |
 |    Vite    |   React   | Zustand |        /        |                ✅                 |
 |    Vite    |   React   |  Jotai  |        /        |                ✅                 |
@@ -30,8 +30,9 @@ create-mori
 |  Webpack   |   React   |    /    |        /        | ✅(Tailwindcss is not supported ) |
 
 -   tailwindcss : ✅ (less is still configured and needs to be removed manually)
+-   use ESLint Stylistic as Formatter
 
-## Vscode Extension
+## VS Code Extension
 
 ```bash
 npm create mori -- -t vscode-extension

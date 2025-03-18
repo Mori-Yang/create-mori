@@ -1,6 +1,6 @@
 import SUPPORTED_COMBINATIONS, {
     Combinations,
-} from "../supported-templates.js";
+} from '../supported-templates.js';
 import {
     BuildTool,
     BuildToolValueTypes,
@@ -10,22 +10,22 @@ import {
     RouterValueTypes,
     Store,
     StoreValueTypes,
-} from "./constant.js";
+} from './constant.js';
 
 export type TemplateConfig = {
-    projectName?: string;
-    buildTool: BuildToolValueTypes;
-    framework: FrameworkValueTypes;
-    store?: StoreValueTypes;
-    router?: RouterValueTypes;
-    useTailwindcss?: boolean;
-    specifiedTemplate?: string;
+    projectName?: string
+    buildTool: BuildToolValueTypes
+    framework: FrameworkValueTypes
+    store?: StoreValueTypes
+    router?: RouterValueTypes
+    useTailwindcss?: boolean
+    specifiedTemplate?: string
 };
 
 // 获取支持的构建工具
 export const getSupportedBuildTools = () => {
-    const buildTools = new Set(SUPPORTED_COMBINATIONS.map((c) => c.buildTool));
-    return Array.from(buildTools).map((value) => ({
+    const buildTools = new Set(SUPPORTED_COMBINATIONS.map(c => c.buildTool));
+    return Array.from(buildTools).map(value => ({
         title: BuildTool.Text[value],
         value,
     }));
@@ -33,8 +33,8 @@ export const getSupportedBuildTools = () => {
 
 // 获取支持的框架
 export const getSupportedFrameworks = () => {
-    const frameworks = new Set(SUPPORTED_COMBINATIONS.map((c) => c.framework));
-    return Array.from(frameworks).map((value) => ({
+    const frameworks = new Set(SUPPORTED_COMBINATIONS.map(c => c.framework));
+    return Array.from(frameworks).map(value => ({
         title: Framework.Text[value],
         value,
     }));
@@ -45,8 +45,8 @@ export const getSupportedStores = (framework: FrameworkValueTypes) => {
     const frameworks = new Set(
         SUPPORTED_COMBINATIONS.filter(
             (c): c is Combinations & { store: StoreValueTypes } =>
-                c.framework === framework && c.store !== undefined
-        ).map((c) => c.store)
+                c.framework === framework && c.store !== undefined,
+        ).map(c => c.store),
     );
 
     return Array.from(frameworks).map((value) => {
@@ -62,8 +62,8 @@ export const getSupportedRouters = (framework: FrameworkValueTypes) => {
     const routers = new Set(
         SUPPORTED_COMBINATIONS.filter(
             (c): c is Combinations & { router: RouterValueTypes } =>
-                c.framework === framework && c.router !== undefined
-        ).map((c) => c.router)
+                c.framework === framework && c.router !== undefined,
+        ).map(c => c.router),
     );
 
     return Array.from(routers).map((value) => {
@@ -74,4 +74,4 @@ export const getSupportedRouters = (framework: FrameworkValueTypes) => {
     });
 };
 
-export * from "./create-template.js";
+export * from './create-template.js';
