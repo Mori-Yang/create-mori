@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from 'react-router';
 
 const About = () => {
     const navigate = useNavigate();
@@ -15,8 +15,13 @@ const About = () => {
                 >
                     Github : Create-Mori
                 </a>
-                <button type="button" onClick={() => navigate("/")}>
-                    <p>← From {location.pathname} Back to Home</p>
+                <button type="button" onClick={() => navigate('/')}>
+                    <p>
+                        ← From
+                        {location.pathname}
+                        {' '}
+                        Back to Home
+                    </p>
                 </button>
             </div>
         </>

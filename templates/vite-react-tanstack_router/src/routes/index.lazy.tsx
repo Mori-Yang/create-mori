@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createLazyFileRoute } from '@tanstack/react-router';
+import { useState } from 'react';
 
-export const Route = createLazyFileRoute("/")({
+export const Route = createLazyFileRoute('/')({
     component: Index,
 });
 

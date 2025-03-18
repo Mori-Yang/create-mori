@@ -7,13 +7,13 @@ import {
     RouterValueTypes,
     Store,
     StoreValueTypes,
-} from "./common/constant.js";
+} from './common/constant.js';
 
 export type Combinations = {
-    buildTool: BuildToolValueTypes;
-    framework: FrameworkValueTypes;
-    store?: StoreValueTypes;
-    router?: RouterValueTypes;
+    buildTool: BuildToolValueTypes
+    framework: FrameworkValueTypes
+    store?: StoreValueTypes
+    router?: RouterValueTypes
 };
 /**
  * 配置可选组合

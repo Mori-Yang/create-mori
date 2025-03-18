@@ -1,13 +1,13 @@
-import type { ConfigEnv, Plugin } from "vite";
+import type { ConfigEnv, Plugin } from 'vite';
 
-const reactScanPlugin = (mode: ConfigEnv["mode"]): Plugin => {
+const reactScanPlugin = (mode: ConfigEnv['mode']): Plugin => {
     return {
-        name: "react-scan-plugin",
+        name: 'react-scan-plugin',
         transformIndexHtml: (html) => {
-            if (mode === "development") {
+            if (mode === 'development') {
                 return html.replace(
-                    "<!--react-scan-->",
-                    "<script src='https://unpkg.com/react-scan/dist/auto.global.js'></script>"
+                    '<!--react-scan-->',
+                    '<script src=\'https://unpkg.com/react-scan/dist/auto.global.js\'></script>',
                 );
             }
             return html;

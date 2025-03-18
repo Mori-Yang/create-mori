@@ -1,11 +1,11 @@
-import { useAtom } from "jotai";
-import { useResetAtom } from "jotai/utils";
+import { useAtom } from 'jotai';
+import { useResetAtom } from 'jotai/utils';
 import {
     addCountAtom,
     countAtom,
     doubleCountAtom,
     subCountAtom,
-} from "../store/coutAtom";
+} from '../store/coutAtom';
 
 const Home = () => {
     const [count] = useAtom(countAtom);
@@ -19,7 +19,10 @@ const Home = () => {
             <img src="./assets/logo.svg" alt="logo" />
             <h1>Mori: Vite - React - Jotai - React Router!</h1>
             <h2>
-                {count} × 2 = {doubleCount}
+                {count}
+                {' '}
+                × 2 =
+                {doubleCount}
             </h2>
             <div className="button-group">
                 <button type="button" onClick={addCount}>

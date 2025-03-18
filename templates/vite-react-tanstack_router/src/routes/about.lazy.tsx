@@ -2,9 +2,9 @@ import {
     createLazyFileRoute,
     useLocation,
     useNavigate,
-} from "@tanstack/react-router";
+} from '@tanstack/react-router';
 
-export const Route = createLazyFileRoute("/about")({
+export const Route = createLazyFileRoute('/about')({
     component: About,
 });
 
@@ -23,8 +23,12 @@ function About() {
                 >
                     Github : Create-Mori
                 </a>
-                <button type="button" onClick={() => navigate({ to: "/" })}>
-                    ← From {location.pathname} Back to Home
+                <button type="button" onClick={() => navigate({ to: '/' })}>
+                    ← From
+                    {' '}
+                    {location.pathname}
+                    {' '}
+                    Back to Home
                 </button>
             </div>
         </div>

@@ -1,16 +1,19 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import useRootStore from "../store/useRootStore";
+import { createLazyFileRoute } from '@tanstack/react-router';
+import useRootStore from '../store/useRootStore';
 
 const Index = () => {
     const { count, doubleCount, addCount, subCount, resetCount } = useRootStore(
-        (state) => state
+        state => state,
     );
     return (
         <>
             <img src="./assets/logo.svg" alt="logo" />
             <h1>Mori: Vite - React - Zustand - Tanstack Router!</h1>
             <h2>
-                {count} × 2 = {doubleCount()}
+                {count}
+                {' '}
+                × 2 =
+                {doubleCount()}
             </h2>
             <div className="btn-group">
                 <button type="button" onClick={addCount}>
@@ -27,6 +30,6 @@ const Index = () => {
     );
 };
 
-export const Route = createLazyFileRoute("/")({
+export const Route = createLazyFileRoute('/')({
     component: Index,
 });

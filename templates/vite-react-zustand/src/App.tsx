@@ -1,16 +1,19 @@
-import "./index.less";
-import useRootStore from "./store/useRootStore";
+import './index.less';
+import useRootStore from './store/useRootStore';
 
 const App = () => {
     const { count, doubleCount, addCount, subCount, resetCount } = useRootStore(
-        (state) => state
+        state => state,
     );
     return (
         <div id="container">
             <img src="./assets/logo.svg" alt="logo" />
             <h1>Mori: Vite - React - Zustand!</h1>
             <h2>
-                {count} × 2 = {doubleCount()}
+                {count}
+                {' '}
+                × 2 =
+                {doubleCount()}
             </h2>
             <div className="btn-group">
                 <button type="button" onClick={addCount}>

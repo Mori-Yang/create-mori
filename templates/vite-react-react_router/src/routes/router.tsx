@@ -1,10 +1,10 @@
-import { createBrowserRouter, RouteObject } from "react-router";
-import { Fragment } from "react/jsx-runtime";
-import App from "../App";
+import { createBrowserRouter, RouteObject } from 'react-router';
+import { Fragment } from 'react/jsx-runtime';
+import App from '../App';
 
 const routes: RouteObject[] = [
     {
-        path: "/",
+        path: '/',
         element: <App />,
         /**
          * When using `createBrowserRouter` and `RouterProvider`,
@@ -17,14 +17,14 @@ const routes: RouteObject[] = [
             {
                 index: true,
                 lazy: async () => {
-                    const { default: Home } = await import("../views/Home");
+                    const { default: Home } = await import('../views/Home');
                     return { Component: Home };
                 },
             },
             {
-                path: "about",
+                path: 'about',
                 lazy: async () => {
-                    const { default: About } = await import("../views/About");
+                    const { default: About } = await import('../views/About');
                     return { Component: About };
                 },
             },

@@ -1,5 +1,5 @@
-import { NavLink, Outlet } from "react-router";
-import "./index.less";
+import { NavLink, Outlet } from 'react-router';
+import './index.less';
 
 const App = () => {
     return (
@@ -8,7 +8,7 @@ const App = () => {
                 <NavLink to="/">Home</NavLink>
                 <NavLink
                     to="/about"
-                    className={({ isActive }) => (isActive ? "active" : "")}
+                    className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                     About
                 </NavLink>

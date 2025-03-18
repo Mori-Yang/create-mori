@@ -1,5 +1,5 @@
-import { atom } from "jotai";
-import { atomWithReset } from "jotai/utils";
+import { atom } from 'jotai';
+import { atomWithReset } from 'jotai/utils';
 
 const initialCount = 0;
 // original atom
@@ -15,4 +15,4 @@ export const subCountAtom = atom(null, (get, set) => {
 });
 
 // derived atom
-export const doubleCountAtom = atom((get) => get(countAtom) * 2);
+export const doubleCountAtom = atom(get => get(countAtom) * 2);
