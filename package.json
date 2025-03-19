@@ -14,7 +14,8 @@
         "test": "npm run build && npm link && create-mori",
         "test:vscode-extension": "npm run build && npm link && create-mori -t vscode-extension",
         "build": "rimraf -I ./dist && tsc",
-        "prepare": "husky"
+        "prepare": "husky",
+        "eslint:ui": "eslint --inspect-config"
     },
     "keywords": [
         "mori",
