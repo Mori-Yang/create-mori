@@ -40,3 +40,12 @@ npm create mori -- -t vscode-extension
 npm install create-mori -g
 create-mori -t vscode-extension
 ```
+
+## ESLint Plugin
+
+```bash
+npm create mori -- -t eslint-plugin
+# or
+npm install create-mori -g
+create-mori -t eslint-plugin
+```

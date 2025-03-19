@@ -16,7 +16,7 @@ export default [
     {
         languageOptions: {
             globals: {
-                ...globals.browser,
+                ...globals.node,
                 /** add global variables here */
             },
         },
