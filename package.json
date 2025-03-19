@@ -1,6 +1,6 @@
 {
     "name": "create-mori",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "Quickly create project templates to support the required repositories as much as possible",
     "main": "./dist/index.js",
     "bin": {
@@ -26,14 +26,14 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Mori-Young/create-mori.git"
+        "url": "git+https://github.com/Mori-Yang/create-mori.git"
     },
     "author": "Mori <ys0514@yeah.net>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Mori-Young/create-mori/issues"
+        "url": "https://github.com/Mori-Yang/create-mori/issues"
     },
-    "homepage": "https://github.com/Mori-Young/create-mori#readme",
+    "homepage": "https://github.com/Mori-Yang/create-mori#readme",
     "devDependencies": {
         "@stylistic/eslint-plugin": "^4.2.0",
         "@types/figlet": "^1.7.0",

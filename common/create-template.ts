@@ -31,7 +31,7 @@ export const createTemplate = (
     if (!finalTemplate) {
         return {
             success: false,
-            message: `⚠️  Error: Mori has not yet provided the template ${templateName}, or encountered an unexpected error. We hope to receive your feedback.\n 🔖 New Issue: https://github.com/Mori-Young/create-mori/issues/new?template=Blank+issue`,
+            message: `⚠️  Error: Mori has not yet provided the template ${templateName}, or encountered an unexpected error. We hope to receive your feedback.\n 🔖 New Issue: https://github.com/Mori-Yang/create-mori/issues/new?template=Blank+issue`,
         };
     }
 

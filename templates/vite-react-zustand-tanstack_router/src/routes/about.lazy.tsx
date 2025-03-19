@@ -17,7 +17,7 @@ function About() {
             <img src="./assets/logo.svg" alt="logo" />
             <div id="about">
                 <a
-                    href="https://github.com/Mori-Young/create-mori/blob/master/README.md"
+                    href="https://github.com/Mori-Yang/create-mori/blob/master/README.md"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
