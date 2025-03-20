@@ -1,6 +1,6 @@
 import { Rule } from 'eslint';
 
-const ruleName: Rule.RuleModule = {
+const ruleA: Rule.RuleModule = {
     create(ctx) {
         return {
             Literal: (node) => {
@@ -13,4 +13,4 @@ const ruleName: Rule.RuleModule = {
     },
 };
 
-export default ruleName;
+export default ruleA;

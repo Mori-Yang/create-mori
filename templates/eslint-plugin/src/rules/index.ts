@@ -1,5 +1,5 @@
-import ruleName from './rule';
+import ruleA from './ruleA';
 
 export default {
-    'rule-name': ruleName,
+    'rule-a': ruleA,
 };

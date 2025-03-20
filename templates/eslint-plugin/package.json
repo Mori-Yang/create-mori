@@ -1,23 +1,33 @@
 {
   "name": "eslint-plugin-mori",
+  "type": "module",
   "version": "0.0.0",
-  "main": "lib/index.js",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "<repo url>"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "",
-  "license": "MIT",
-  "description": "",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
-    "lib",
+    "dist",
     "README.md",
     "package.json"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch --sourcemap",
+    "build": "unbuild",
+    "dev": "unbuild --stub",
     "test": "npm run dev && npm link"
   },
   "devDependencies": {
@@ -25,7 +35,6 @@
     "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "^9.22.0",
     "globals": "^16.0.0",
-    "tsup": "^8.4.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
   },

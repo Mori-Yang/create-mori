@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import rules from './rules';
+import { fileURLToPath } from 'node:url';
 
+const dirname = fileURLToPath(import.meta.url);
 const pkg = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '..', 'package.json'), 'utf-8'),
+    fs.readFileSync(path.resolve(dirname, '..', '..', 'package.json'), 'utf-8'),
 );
 
 const plugin = {
@@ -21,9 +23,9 @@ Object.assign(plugin.configs, {
             mori: plugin,
         },
         rules: {
-            'mori/rule-name': 'warn',
+            'mori/rule-a': 'warn',
         },
     },
 });
 
-module.exports = plugin;
+export default plugin;
