@@ -1,12 +1,26 @@
 import { Rule } from 'eslint';
 
+export type MessageIds = "messageId"
+
 const ruleA: Rule.RuleModule = {
+    meta: {
+        type: "problem",
+        fixable: 'whitespace',
+        docs: {
+            description: "desc"
+        },
+        messages: {
+            messageId: "Expect to ..."
+        }
+    },
     create(ctx) {
         return {
             Literal: (node) => {
                 ctx.report({
-                    message: '🌲',
+                    messageId: "messageId",
                     node,
+                    // fix(fixer) {
+                    // },
                 });
             },
         };
