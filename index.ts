@@ -8,7 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ora from 'ora';
 import prompts from 'prompts';
-import { BuildTool, SpecifiedTemplateSet } from './common/constant.js';
+import { BuildTool } from './common/constant.js';
 import {
     createTemplate,
     getSupportedBuildTools,
@@ -17,20 +17,32 @@ import {
     getSupportedStores,
     TemplateConfig,
 } from './common/index.js';
+import { convertAliasToTemplateName, hasSpecificTemplate } from './common/utils.js';
+
+const CLIDesc = `
+CLI for creating a new project
+you can use -t <type> to create a specific template,availabel type is:
+vscode-estension ---- VSCode Extension
+eslint-plugin ---- ESlint Plugin
+pkg ---- NPM Package
+`;
 
 const dirname = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const packageJson = fsExtra.readJsonSync(path.resolve(dirname, 'package.json'));
+
 const program = new Command();
 program
     .name('create-mori')
-    .description('CLI for creating a new project')
+    .description(CLIDesc)
     .version(packageJson.version);
 
+// cli options
 program.option('-t, --template <type>', 'Create a specific template');
 program.parse(process.argv);
 const options = program.opts();
+
 const isSpecifiedTemplate
-    = options.template && SpecifiedTemplateSet.has(options.template);
+    = options.template && hasSpecificTemplate(options.template);
 
 const spinner = ora({
     color: 'green',
@@ -138,7 +150,7 @@ try {
     fs.removeSync(root);
     fs.ensureDirSync(root);
     const config = {
-        specifiedTemplate: options.template,
+        specifiedTemplate: convertAliasToTemplateName(options.template),
         projectName,
         buildTool,
         framework,

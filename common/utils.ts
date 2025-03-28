@@ -10,6 +10,7 @@ import {
     SourceFile,
     SyntaxKind,
 } from 'ts-morph';
+import { SpecifiedTemplateMap } from './constant.js';
 
 /**
  * 解析规则：
@@ -203,4 +204,20 @@ function injectPlugins(
     else {
         pluginsArrayExpr.addElement(plugins);
     }
+}
+
+export function hasSpecificTemplate(tempAlias: string) {
+    const set = new Set();
+    SpecifiedTemplateMap.forEach((k, v) => {
+        set.add(k);
+        set.add(v);
+    });
+    return set.has(tempAlias);
+}
+
+export function convertAliasToTemplateName(alias: string) {
+    if (SpecifiedTemplateMap.has(alias)) {
+        return SpecifiedTemplateMap.get(alias);
+    }
+    return alias;
 }

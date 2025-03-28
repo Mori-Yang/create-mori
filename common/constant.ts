@@ -57,5 +57,5 @@ export type FrameworkValueTypes =
 export type StoreValueTypes = (typeof Store.Value)[keyof typeof Store.Value];
 export type RouterValueTypes = (typeof Router.Value)[keyof typeof Router.Value];
 
-const SpecifiedTemplateSet = new Set(['vscode-extension', 'eslint-plugin']);
-export { BuildTool, Framework, Router, SpecifiedTemplateSet, Store };
+const SpecifiedTemplateMap = new Map([['ve', 'vscode-extension'], ['ep', 'eslint-plugin'], ['pkg', 'npm-package']]);
+export { BuildTool, Framework, Router, SpecifiedTemplateMap, Store };

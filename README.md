@@ -32,20 +32,31 @@ create-mori
 -   tailwindcss : ✅ (less is still configured and needs to be removed manually)
 -   use ESLint Stylistic as Formatter
 
-## VS Code Extension
+
+# Specified Template
 
 ```bash
-npm create mori -- -t vscode-extension
+npm create mori -- -t <template name>
 # or
 npm install create-mori -g
-create-mori -t vscode-extension
+create-mori -t <template name>
 ```
+
+## VS Code Extension
+
+`template name` : `vscode-extension`
+
+`alias` : `ve`
+
 
 ## ESLint Plugin
 
-```bash
-npm create mori -- -t eslint-plugin
-# or
-npm install create-mori -g
-create-mori -t eslint-plugin
-```
+`template name` : `eslint-plugin`
+
+`alias` : `ep`
+
+## Npm Package
+
+`template name` : `npm-package`
+
+`alias` : `pkg`

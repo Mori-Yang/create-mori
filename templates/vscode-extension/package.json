@@ -53,7 +53,8 @@
         "publish": "vsce publish --no-dependencies",
         "pack": "vsce package --no-dependencies",
         "typecheck": "tsc --noEmit",
-        "test": "vitest"
+        "test": "vitest",
+        "test:debug": "vitest -u"
     },
     "devDependencies": {
         "@eslint/js": "^9.18.0",

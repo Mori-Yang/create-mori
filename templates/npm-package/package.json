@@ -1,0 +1,38 @@
+{
+  "name": "npm-package",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "<repo url>"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "test": "vitest",
+    "test:debug": "vitest -u",
+    "pub": "npm run build && npm publish"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0",
+    "unbuild": "^3.5.0",
+    "vitest": "^3.0.9"
+  },
+  "packageManager": "pnpm@10.6.5"
+}

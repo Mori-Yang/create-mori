@@ -1,6 +1,6 @@
 {
     "name": "create-mori",
-    "version": "1.1.9",
+    "version": "1.2.0",
     "description": "Quickly create project templates to support the required repositories as much as possible",
     "main": "./dist/index.js",
     "bin": {
@@ -12,7 +12,7 @@
     ],
     "scripts": {
         "test": "npm run build && npm link && create-mori",
-        "test:vscode-extension": "npm run build && npm link && create-mori -t vscode-extension",
+        "test:spec": "npm run build && npm link && create-mori -t",
         "build": "rimraf -I ./dist && tsc",
         "prepare": "husky",
         "eslint:ui": "eslint --inspect-config"
