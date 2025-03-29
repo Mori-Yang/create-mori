@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import rules from './rules';
 import { fileURLToPath } from 'node:url';
-import { ESLint, Linter } from 'eslint';
+import type { ESLint, Linter } from 'eslint';
 
 const dirname = fileURLToPath(import.meta.url);
 const pkg = JSON.parse(

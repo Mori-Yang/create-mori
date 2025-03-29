@@ -1,23 +1,23 @@
-import { Rule } from 'eslint';
+import type { Rule } from 'eslint';
 
-export type MessageIds = "messageId"
+export type MessageIds = 'messageId';
 
 const ruleA: Rule.RuleModule = {
     meta: {
-        type: "problem",
+        type: 'problem',
         fixable: 'whitespace',
         docs: {
-            description: "desc"
+            description: 'desc',
         },
         messages: {
-            messageId: "Expect to ..."
-        }
+            messageId: 'Expect to ...',
+        },
     },
     create(ctx) {
         return {
             Literal: (node) => {
                 ctx.report({
-                    messageId: "messageId",
+                    messageId: 'messageId',
                     node,
                     // fix(fixer) {
                     // },

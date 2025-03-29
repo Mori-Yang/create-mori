@@ -1,13 +1,14 @@
 import fs from 'fs';
 import fsExtra from 'fs-extra/esm';
 import { resolve } from 'path';
-import {
+import type {
     ArrayLiteralExpression,
     CallExpression,
     Expression,
+    SourceFile } from 'ts-morph';
+import {
     Node,
     Project,
-    SourceFile,
     SyntaxKind,
 } from 'ts-morph';
 import { SpecifiedTemplateMap } from './constant.js';

@@ -9,13 +9,14 @@ import { fileURLToPath } from 'node:url';
 import ora from 'ora';
 import prompts from 'prompts';
 import { BuildTool } from './common/constant.js';
+import type {
+    TemplateConfig } from './common/index.js';
 import {
     createTemplate,
     getSupportedBuildTools,
     getSupportedFrameworks,
     getSupportedRouters,
     getSupportedStores,
-    TemplateConfig,
 } from './common/index.js';
 import { convertAliasToTemplateName, hasSpecificTemplate } from './common/utils.js';
 

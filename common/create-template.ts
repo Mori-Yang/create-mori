@@ -2,7 +2,7 @@ import fsExtra from 'fs-extra/esm';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BuildTool, Framework, Router, Store } from './constant.js';
-import { TemplateConfig } from './index.js';
+import type { TemplateConfig } from './index.js';
 import {
     processJs,
     processJson,

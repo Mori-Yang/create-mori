@@ -1,12 +1,13 @@
+import type {
+    BuildToolValueTypes,
+    FrameworkValueTypes,
+    RouterValueTypes,
+    StoreValueTypes } from './common/constant.js';
 import {
     BuildTool,
-    BuildToolValueTypes,
     Framework,
-    FrameworkValueTypes,
     Router,
-    RouterValueTypes,
     Store,
-    StoreValueTypes,
 } from './common/constant.js';
 
 export type Combinations = {

@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouteObject } from 'react-router';
+import type { RouteObject } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 import { Fragment } from 'react/jsx-runtime';
 import App from '../App';
 

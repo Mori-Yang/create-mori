@@ -1,7 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-import { Configuration } from 'webpack';
-import { CallableWebpackConfiguration } from 'webpack-cli';
+import type { Configuration } from 'webpack';
+import type { CallableWebpackConfiguration } from 'webpack-cli';
 
 // webpack ts 配置: https://www.webpackjs.com/configuration/configuration-languages/#typescript
 const config: CallableWebpackConfiguration = (env): Configuration => {

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import createCountSlice, { CountSlice } from './slices/countSlice';
+import type { CountSlice } from './slices/countSlice';
+import createCountSlice from './slices/countSlice';
 
 const useRootStore = create<CountSlice>()((...args) => ({
     ...createCountSlice(...args),
