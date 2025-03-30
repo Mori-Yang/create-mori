@@ -1,4 +1,4 @@
-# Mori: Vite + React + Jotai + Tanstack Router
+# [name]
 
 - Vite
 - React

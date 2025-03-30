@@ -1,6 +1,6 @@
 {
     "name": "create-mori",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Quickly create project templates to support the required repositories as much as possible",
     "main": "./dist/index.js",
     "bin": {

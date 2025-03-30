@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-mori",
+  "name": "[name]",
   "type": "module",
   "version": "0.0.0",
   "description": "",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "<repo url>"
+    "url": "[repo]"
   },
   "keywords": [
     "eslint",

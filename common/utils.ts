@@ -74,7 +74,7 @@ export function processWrite(injectWrite: InjectWrite, root: string) {
             if (Array.isArray(inject)) {
                 let injectCode = '';
                 inject.forEach((code) => {
-                    injectCode += code + '\n';
+                    injectCode += `${code}\n`;
                 });
                 writeContentAfterLine(targetPath, pos, injectCode);
             }

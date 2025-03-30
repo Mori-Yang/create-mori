@@ -4,7 +4,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-    { ignores: ['dist', 'node_modules', 'package.json'] },
+    { ignores: ['**/dist', '**/node_modules', '**/package.json', '**/generated'] },
     { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
     {
         languageOptions: {
@@ -18,6 +18,8 @@ export default [
     {
         /** add custom rules here */
         rules: {
+            // 'no-useless-concat': ['error'], // without autofix, trying to implement in eslint-plugin-unicorn or implement a plugin to enhence it
+            'prefer-template': ['warn'],
             '@typescript-eslint/consistent-type-imports': ['error', {
                 prefer: 'type-imports',
                 fixStyle: 'separate-type-imports',

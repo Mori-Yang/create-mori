@@ -1,4 +1,4 @@
-# Create Mori
+# [name]
 
 Visual Studio Code Extention Template!
 

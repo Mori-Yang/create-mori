@@ -181,7 +181,7 @@ try {
 }
 catch (err) {
     spinner.fail(
-        chalk.red('🚫 ' + (err instanceof Error ? err.message : String(err))),
+        chalk.red(`🚫 ${err instanceof Error ? err.message : String(err)}`),
     );
 }
 

@@ -1,4 +1,4 @@
-# Create Mori
+# [name]
 
 ESLint Plugin Template!
 

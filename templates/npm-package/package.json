@@ -1,12 +1,12 @@
 {
-  "name": "npm-package",
+  "name": "[name]",
   "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "<repo url>"
+    "url": "[repo]"
   },
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

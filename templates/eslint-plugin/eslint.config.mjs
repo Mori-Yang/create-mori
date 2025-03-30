@@ -25,6 +25,8 @@ export default [
     {
         /** add custom rules here */
         rules: {
+            // 'no-useless-concat': ['error'], // without autofix, trying to implement in eslint-plugin-unicorn or implement a plugin to enhence it
+            'prefer-template': ['warn'],
             '@typescript-eslint/consistent-type-imports': ['error', {
                 prefer: 'type-imports',
                 fixStyle: 'separate-type-imports',

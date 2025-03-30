@@ -1,4 +1,4 @@
-# Mori: Vite + React
+# [name]
 
 -   Vite
 -   React

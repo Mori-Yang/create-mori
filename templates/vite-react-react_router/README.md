@@ -1,4 +1,4 @@
-# Mori: Vite + React + React Router
+# [name]
 
 -   Vite
 -   React

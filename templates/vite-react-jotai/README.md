@@ -1,4 +1,4 @@
-# Mori: Vite + React + Jotai
+# [name]
 
 -   Vite
 -   React

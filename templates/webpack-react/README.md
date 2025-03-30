@@ -1,4 +1,4 @@
-# Mori: Webpack + React
+# [name]
 
 -   Webpack
 -   React
