@@ -26,6 +26,7 @@ you can use -t <type> to create a specific template,availabel type is:
 vscode-estension ---- VSCode Extension
 eslint-plugin ---- ESlint Plugin
 pkg ---- NPM Package
+mcps ---- MCP Server
 `;
 
 const dirname = path.resolve(fileURLToPath(import.meta.url), '..', '..');

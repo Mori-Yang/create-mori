@@ -63,3 +63,9 @@ create-mori -t <template name>
 `template name` : `npm-package`
 
 `alias` : `pkg`
+
+## MCP Server
+
+`template name` : `mcp-server`
+
+`alias` : `mcps`
