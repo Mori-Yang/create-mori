@@ -1,12 +1,21 @@
 #!/usr/bin/env node
-
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import pkg from './package.json';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 
 import { TOOLS, TOOL_HANDLERS } from './tools/index.js';
 import { getEnvironmentVariables } from './env.js';
+
+const dirname = fileURLToPath(import.meta.url);
+const pkg: {
+    name: string
+    version: string
+} = JSON.parse(
+    fs.readFileSync(path.resolve(dirname, '..', '..', 'package.json'), 'utf-8'),
+);
 
 // Init environment variables
 const ENV_VARIABLES = getEnvironmentVariables();
@@ -61,7 +70,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function runServer() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
-    console.info('MCP Server running on stdio');
+    console.error('MCP Server running on stdio');
 }
 
 runServer().catch((error) => {

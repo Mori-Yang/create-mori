@@ -13,6 +13,18 @@ Created By Mori!
 
 ## Usage
 
-```
-
+```json
+{
+  "mcpServers": {
+    "mori-mcp": {
+      "command": "node",
+      "args": [
+        "./build/index.js"
+      ],
+      "env": {
+        "ENV_VARIABLE_NAME": "mori"
+      }
+    }
+  }
+}
 ```

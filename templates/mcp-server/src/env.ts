@@ -1,5 +1,5 @@
 export interface EnvironmentVariables {
-    ENV_VARIABLE_NAME: string | undefined;
+    ENV_VARIABLE_NAME: string | undefined
 }
 
 /**
@@ -12,6 +12,6 @@ export interface EnvironmentVariables {
  */
 export function getEnvironmentVariables(): EnvironmentVariables {
     return {
-        ENV_VARIABLE_NAME: process.env.ENV_VARIABLE_NAME
+        ENV_VARIABLE_NAME: process.env.ENV_VARIABLE_NAME,
     };
 }
