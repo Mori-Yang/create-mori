@@ -10,3 +10,9 @@ Created By Mori!
 2. Update `package.json`
 3. If your mcp server need environment variable, you should add them in ./src/env.ts
 4. All tools are managed in the tools folder (definitions and handlers)
+
+## Usage
+
+```
+
+```
