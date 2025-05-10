@@ -25,6 +25,7 @@ const server = new Server({
     name: pkg.name,
     version: pkg.version,
 }, {
+    // TODO: When initializing, inform the client of the functionality provided
     capabilities: {
         resources: {},
         tools: {},
