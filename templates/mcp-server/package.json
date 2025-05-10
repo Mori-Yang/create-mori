@@ -1,10 +1,12 @@
 {
-  "name": "[name]",
+  "name": "@mori/mcp-server",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
-  "bin": "./build/index.js",
+  "bin": {
+    "mcp-server": "./build/index.js"
+  },
   "scripts": {
     "build": "tsc && chmod 775 build/index.js"
   },
