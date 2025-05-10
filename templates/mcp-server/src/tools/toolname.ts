@@ -1,5 +1,6 @@
-import type { CallToolResult, Tool } from '@modelcontextprotocol/sdk/types.js';
+import type { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { EnvironmentVariables } from '../env.js';
+import type { ToolHandler } from './index.js';
 
 // Tool definitions
 // TODO: Complete the tool's definition
@@ -19,7 +20,7 @@ const ToolName: Tool = {
 
 // Tool handler
 // TODO: Implement the tool's logic
-async function handleToolName(_args: Record<string, unknown> | undefined, _envVars?: EnvironmentVariables): Promise<CallToolResult> {
+const handleToolName: ToolHandler = async (_args: unknown, _envVars?: EnvironmentVariables) => {
     return {
         content: [{
             type: 'text',
@@ -30,6 +31,6 @@ async function handleToolName(_args: Record<string, unknown> | undefined, _envVa
         }],
         isError: false,
     };
-}
+};
 
 export { ToolName, handleToolName };
