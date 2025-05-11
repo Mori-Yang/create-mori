@@ -6,7 +6,7 @@ Quickly create project templates to support the required repositories as much as
 # usage
 
 ```bash
-npm [name]
+npx create-mori
 # or
 npm install create-mori -g
 create-mori
@@ -39,7 +39,7 @@ You can do a global replace by searching for [name] and [repo]
 # Specified Template
 
 ```bash
-npm [name] -- -t <template name>
+npx create-mori -t <template name>
 # or
 npm install create-mori -g
 create-mori -t <template name>
