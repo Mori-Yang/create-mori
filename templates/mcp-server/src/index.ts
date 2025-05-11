@@ -4,10 +4,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+import { CallToolRequestSchema, GetPromptRequestSchema, ListPromptsRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 
 import { TOOLS, TOOL_HANDLERS } from './tools/index.js';
 import { getEnvironmentVariables } from './env.js';
+import { PROMPTS_MAP, PROMPTS_DECLARATION } from './prompts/index.js';
 
 const dirname = fileURLToPath(import.meta.url);
 const pkg: {
@@ -38,6 +39,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     tools: TOOLS,
 }));
 
+// Set up available prompts -- list prompts request
+server.setRequestHandler(ListPromptsRequestSchema, async () => ({
+    prompts: PROMPTS_DECLARATION,
+}));
+
 // Set up request handlers -- call tools request
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
     try {
@@ -65,6 +71,22 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             isError: true,
         };
     }
+});
+
+// Set up request handlers -- get prompt request
+server.setRequestHandler(GetPromptRequestSchema, async (request) => {
+    const [prompt, getter] = PROMPTS_MAP[request.params.name];
+    if (!prompt) {
+        throw new Error(`Unknown prompt: ${request.params.name}`);
+    }
+
+    return {
+        role: 'xx',
+        content: {
+            type: 'text',
+            text: getter(),
+        },
+    };
 });
 
 // Run the mcp server

@@ -1,4 +1,5 @@
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
+// TODO import your tool and handler
 import { ToolName, handleToolName } from './toolname.js';
 
 import type { EnvironmentVariables } from '../env.js';

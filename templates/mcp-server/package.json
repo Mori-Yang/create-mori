@@ -2,13 +2,15 @@
   "name": "@mori/mcp-server",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/index.mjs",
   "type": "module",
   "bin": {
-    "mcp-server": "./build/index.js"
+    "mcp-server": "./build/index.mjs"
   },
   "scripts": {
-    "build": "tsc && chmod 775 build/index.js"
+    "build": "unbuild && chmod 775 build/index.mjs",
+    "dev": "unbuild --stub",
+    "inspect": "npm run dev && npx -y @modelcontextprotocol/inspector node ./build/index.mjs"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {
     "@types/node": "^22.15.17",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "unbuild": "^3.5.0"
   }
 }
