@@ -20,7 +20,7 @@ const ToolName: Tool = {
 
 // Tool handler
 // TODO: Implement the tool's logic
-const handleToolName: ToolHandler = async (_args: unknown, _envVars?: EnvironmentVariables) => {
+const handleToolName: ToolHandler<unknown> = async (_args: unknown, _envVars?: EnvironmentVariables) => {
     return {
         content: [{
             type: 'text',
