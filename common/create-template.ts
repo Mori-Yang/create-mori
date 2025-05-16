@@ -78,7 +78,9 @@ function genTemplateName(config: Omit<TemplateConfig, 'projectName'>) {
                 templateName += `-${Framework.Text[config[k]]}`;
                 break;
             case 'store':
-                templateName += `-${Store.Text[config[k]!]}`;
+                templateName += `-${Store.Text[config[k]!]}`
+                    .split(' ')
+                    .join('_');
                 break;
             case 'router':
                 templateName += `-${Router.Text[config[k]!]

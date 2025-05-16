@@ -110,7 +110,7 @@ if (supportedStores.length && !isSpecifiedTemplate) {
 }
 
 // Select router library
-const supportedRouters = getSupportedRouters(framework);
+const supportedRouters = getSupportedRouters(framework, store);
 let router = null;
 if (supportedRouters.length && !isSpecifiedTemplate) {
     const { needRouter } = await prompts({

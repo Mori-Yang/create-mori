@@ -19,19 +19,20 @@ You can do a global replace by searching for [name] and [repo]
 
 ## Application
 
-| build tool | framework |  store  |     router      |             template             |
-| :--------: | :-------: | :-----: | :-------------: | :------------------------------: |
-|    Vite    |   React   |    /    |        /        |                ✅                 |
+| build tool | framework |    store    |     router      |             template              |
+| :--------: | :-------: | :---------: | :-------------: | :-------------------------------: |
+|    Vite    |   React   |    /        |        /        |                ✅                 |
 |    Vite    |   React   | React Query |        /        |                ✅                 |
-|    Vite    |   React   | Zustand |        /        |                ✅                 |
-|    Vite    |   React   |  Jotai  |        /        |                ✅                 |
-|    Vite    |   React   |    /    |  React Router   |                ✅                 |
-|    Vite    |   React   |    /    | Tanstack Router |                ✅                 |
-|    Vite    |   React   | Zustand |  React Router   |                ✅                 |
-|    Vite    |   React   | Zustand | Tanstack Router |                ✅                 |
-|    Vite    |   React   |  Jotai  |  React Router   |                ✅                 |
-|    Vite    |   React   |  Jotai  | Tanstack Router |                ✅                 |
-|  Webpack   |   React   |    /    |        /        | ✅(Tailwindcss is not supported ) |
+|    Vite    |   React   |   Zustand   |        /        |                ✅                 |
+|    Vite    |   React   |    Jotai    |        /        |                ✅                 |
+|    Vite    |   React   |      /      |  React Router   |                ✅                 |
+|    Vite    |   React   |      /      | Tanstack Router |                ✅                 |
+|    Vite    |   React   |   Zustand   |  React Router   |                ✅                 |
+|    Vite    |   React   |   Zustand   | Tanstack Router |                ✅                 |
+|    Vite    |   React   | React Query | Tanstack Router |                ✅                 |
+|    Vite    |   React   |    Jotai    |  React Router   |                ✅                 |
+|    Vite    |   React   |    Jotai    | Tanstack Router |                ✅                 |
+|  Webpack   |   React   |      /      |        /        | ✅(Tailwindcss is not supported ) |
 
 -   tailwindcss : ✅ (less is still configured and needs to be removed manually)
 -   use ESLint Stylistic as Formatter

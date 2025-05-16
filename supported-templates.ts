@@ -41,12 +41,47 @@ const SUPPORTED_COMBINATIONS: Array<Combinations> = [
     {
         buildTool: BuildTool.Value.Vite,
         framework: Framework.Value.React,
+        store: Store.Value.TanstackQuery,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
         router: Router.Value.ReactRouter,
     },
     {
         buildTool: BuildTool.Value.Vite,
         framework: Framework.Value.React,
         router: Router.Value.TanstackRouter,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.TanstackQuery,
+        router: Router.Value.TanstackRouter,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Jotai,
+        router: Router.Value.TanstackRouter,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Zustand,
+        router: Router.Value.TanstackRouter,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Zustand,
+        router: Router.Value.ReactRouter,
+    },
+    {
+        buildTool: BuildTool.Value.Vite,
+        framework: Framework.Value.React,
+        store: Store.Value.Jotai,
+        router: Router.Value.ReactRouter,
     },
 ];
 

@@ -60,11 +60,11 @@ export const getSupportedStores = (framework: FrameworkValueTypes) => {
 };
 
 // 获取特定框架下支持的路由
-export const getSupportedRouters = (framework: FrameworkValueTypes) => {
+export const getSupportedRouters = (framework: FrameworkValueTypes, store: StoreValueTypes) => {
     const routers = new Set(
         SUPPORTED_COMBINATIONS.filter(
             (c): c is Combinations & { router: RouterValueTypes } =>
-                c.framework === framework && c.router !== undefined,
+                c.framework === framework && c.router !== undefined && c.store === store,
         ).map(c => c.router),
     );
 

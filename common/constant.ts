@@ -26,12 +26,14 @@ const Store = {
         2: 'Pinia',
         3: 'Zustand',
         4: 'Jotai',
+        5: 'Tanstack Query',
     },
     Value: {
         Vuex: 1,
         Pinia: 2,
         Zustand: 3,
         Jotai: 4,
+        TanstackQuery: 5,
     },
 } as const;
 
