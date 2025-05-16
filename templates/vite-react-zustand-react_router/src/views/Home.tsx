@@ -1,4 +1,5 @@
 import useRootStore from '../store/useRootStore';
+import logo from '../../assets/logo.svg';
 
 const Home = () => {
     const { count, doubleCount, addCount, subCount, resetCount } = useRootStore(
@@ -6,7 +7,7 @@ const Home = () => {
     );
     return (
         <>
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>Mori: Vite - React - Zustand - React Router!</h1>
             <h2>
                 {count}

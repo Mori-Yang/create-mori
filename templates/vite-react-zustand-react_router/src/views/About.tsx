@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router';
+import logo from '../../assets/logo.svg';
 
 const About = () => {
     const navigate = useNavigate();
@@ -6,7 +7,7 @@ const About = () => {
 
     return (
         <>
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <div id="about">
                 <a
                     href="https://github.com/Mori-Yang/create-mori/blob/master/README.md"

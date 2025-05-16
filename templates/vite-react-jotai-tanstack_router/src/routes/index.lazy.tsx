@@ -7,6 +7,8 @@ import {
     doubleCountAtom,
     subCountAtom,
 } from '../store/coutAtom';
+import logo from '../../assets/logo.svg';
+
 export const Route = createLazyFileRoute('/')({
     component: Index,
 });
@@ -20,7 +22,7 @@ function Index() {
 
     return (
         <>
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>Mori: Vite - React - Jotai - Tanstack Router!</h1>
             <h2>
                 {count}

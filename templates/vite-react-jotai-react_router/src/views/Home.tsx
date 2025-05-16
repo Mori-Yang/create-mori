@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai';
 import { useResetAtom } from 'jotai/utils';
+import logo from '../../assets/logo.svg';
 import {
     addCountAtom,
     countAtom,
@@ -16,7 +17,7 @@ const Home = () => {
 
     return (
         <div id="container">
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>Mori: Vite - React - Jotai - React Router!</h1>
             <h2>
                 {count}

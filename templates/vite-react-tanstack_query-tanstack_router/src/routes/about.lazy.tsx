@@ -3,7 +3,7 @@ import {
     useLocation,
     useNavigate,
 } from '@tanstack/react-router';
-
+import logo from '../../assets/logo.svg';
 export const Route = createLazyFileRoute('/about')({
     component: About,
 });
@@ -14,7 +14,7 @@ function About() {
 
     return (
         <div id="container">
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <div id="about">
                 <a
                     href="https://github.com/Mori-Yang/create-mori/blob/master/README.md"

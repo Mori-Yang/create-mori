@@ -1,20 +1,40 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import logo from '../../assets/logo.svg';
 
 export const Route = createLazyFileRoute('/')({
-    component: Index,
+    component: Index
 });
 
 function Index() {
-    const [count, setCount] = useState(0);
+    const queryClient = useQueryClient();
+
+    const { data, isLoading } = useQuery<number>(
+        {
+            queryKey: ['count'],
+            queryFn: () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(1);
+                    }, 1000);
+                });
+            }
+        }
+    )
+
+    function handleClick() {
+        queryClient.setQueryData(['count'], (oldData: number) => (oldData || 0) + 1);
+    }
+
     return (
-        <div id="container">
-            <img src="./assets/logo.svg" alt="logo" />
-            <h1>Mori: Vite  - React- Tanstack Router!</h1>
-            <h2>{count}</h2>
-            <button type="button" onClick={() => setCount(count + 1)}>
-                Click me
-            </button>
-        </div>
+        <>
+
+            <div id="container">
+                <img src={logo} alt="logo" />
+                <h1>Mori: Vite - React!</h1>
+                <h2>{isLoading ? 'Loading...' : data}</h2>
+                <button type='button' onClick={handleClick}>Add</button>
+            </div>
+        </>
     );
 }
