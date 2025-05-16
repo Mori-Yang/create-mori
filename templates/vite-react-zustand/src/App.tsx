@@ -1,13 +1,13 @@
 import './index.less';
 import useRootStore from './store/useRootStore';
-
+import logo from '../assets/logo.svg';
 const App = () => {
     const { count, doubleCount, addCount, subCount, resetCount } = useRootStore(
         state => state,
     );
     return (
         <div id="container">
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>Mori: Vite - React - Zustand!</h1>
             <h2>
                 {count}

@@ -22,6 +22,7 @@ You can do a global replace by searching for [name] and [repo]
 | build tool | framework |  store  |     router      |             template             |
 | :--------: | :-------: | :-----: | :-------------: | :------------------------------: |
 |    Vite    |   React   |    /    |        /        |                ✅                 |
+|    Vite    |   React   | React Query |        /        |                ✅                 |
 |    Vite    |   React   | Zustand |        /        |                ✅                 |
 |    Vite    |   React   |  Jotai  |        /        |                ✅                 |
 |    Vite    |   React   |    /    |  React Router   |                ✅                 |

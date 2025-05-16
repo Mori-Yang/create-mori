@@ -7,6 +7,7 @@ import {
     resetCountAtom,
     subCountAtom,
 } from './store/countAtom';
+import logo from '../assets/logo.svg';
 
 const App = () => {
     const [count] = useAtom(countAtom);
@@ -17,7 +18,7 @@ const App = () => {
 
     return (
         <div id="container">
-            <img src="./assets/logo.svg" alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>Mori: Vite - React - Jotai!</h1>
             <h2>
                 {count}
