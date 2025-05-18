@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import './index.less';
 import { lazy, Suspense, useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import './index.less';
 
 const ReactQueryDevtoolsProduction = lazy(() =>
     import('@tanstack/react-query-devtools/production').then(
@@ -50,7 +50,7 @@ const App = () => {
             {/* Content */}
             <div id="container">
                 <img src={logo} alt="logo" />
-                <h1>Mori: Vite - React!</h1>
+                <h1>Mori: Vite - React - Tanstack Query!</h1>
                 <h2>{isLoading ? 'Loading...' : data}</h2>
                 <button type='button' onClick={handleClick}>Add</button>
             </div>

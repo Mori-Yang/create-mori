@@ -1,5 +1,5 @@
-import { createLazyFileRoute } from '@tanstack/react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { createLazyFileRoute } from '@tanstack/react-router';
 import logo from '../../assets/logo.svg';
 
 export const Route = createLazyFileRoute('/')({
@@ -31,7 +31,7 @@ function Index() {
 
             <div id="container">
                 <img src={logo} alt="logo" />
-                <h1>Mori: Vite - React!</h1>
+                <h1>Mori: Vite - React - Tanstack Query - Tanstack Router!</h1>
                 <h2>{isLoading ? 'Loading...' : data}</h2>
                 <button type='button' onClick={handleClick}>Add</button>
             </div>
