@@ -1,8 +1,8 @@
 import pluginJs from '@eslint/js';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginQuery from '@tanstack/eslint-plugin-query';
 // feature: use eslint stylistic as formatter
 import stylistic from '@stylistic/eslint-plugin';
 
@@ -47,7 +47,7 @@ export default [
     },
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat['jsx-runtime'],
-    pluginQuery.configs['flat/recommended'],
+    ...pluginQuery.configs['flat/recommended'],
     // stylistic config
     stylistic.configs.recommended,
     {
