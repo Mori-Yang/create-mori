@@ -2,6 +2,7 @@
 
 -   Vite
 -   React
+-   TanStack Query
 -   Less
 -   TypeScript
 -   ESLint

@@ -2,6 +2,8 @@
 
 -   Vite
 -   React
+-   TanStack Query
+-   TanStack Router
 -   Less
 -   TypeScript
 -   ESLint
